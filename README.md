@@ -19,3 +19,18 @@ if (wr_en_i && !full_o) begin
         mem[wr_ptr[MSB-1:0]] <= wr_data_i;
 end
 ```
+FIFO interface is shown below:
+```sv
+module sync_fifo_sv #(WIDTH = 8,
+                      DEPTH = 4
+    )(
+    input  logic clk,
+    input  logic rst_n,
+    input  logic wr_en_i,
+    input  logic [WIDTH-1:0] wr_data_i,
+    output logic full_o,
+    input  logic rd_en_i,
+    output logic [WIDTH-1:0] rd_data_o,
+    output logic empty_o
+  );
+```
