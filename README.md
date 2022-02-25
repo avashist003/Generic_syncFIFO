@@ -24,11 +24,14 @@ FIFO interface is shown below:
 module sync_fifo_sv #(WIDTH = 8,
                       DEPTH = 4
     )(
+    // system clock and active low asynchronous reset
     input  logic clk,
     input  logic rst_n,
+    // write interface
     input  logic wr_en_i,
     input  logic [WIDTH-1:0] wr_data_i,
     output logic full_o,
+    // read interface
     input  logic rd_en_i,
     output logic [WIDTH-1:0] rd_data_o,
     output logic empty_o
