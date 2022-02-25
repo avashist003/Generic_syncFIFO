@@ -6,6 +6,8 @@
 #### Update for write logic is shown below: (similarly, we can update the read pointer logic as well)
 ```sv
 if (wr_en_i && !full_o) begin
+        // Wrap the pointer when reached the required depth
+        // toggle the MSB bit of pointer for correct full/empty flags
         if (wr_ptr[MSB-1:0] == DEPTH-1) begin
             wr_ptr[MSB-1:0] <= '0;
             wr_ptr[MSB] <= ~wr_ptr[MSB];
